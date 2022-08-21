@@ -1,6 +1,15 @@
 # Bloxflip.py
 An API Wrapper for bloxflip
 
+# Usage
+There are 5 main bloxflip attributes
+ - Authorization
+ - Crash
+ - Currency
+ - Mines
+ - Towers
+ 
+
 # Examples
 
 Simple Crash joiner
