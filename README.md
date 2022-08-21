@@ -31,3 +31,4 @@ for game in Crash.Crashpoints(amount=35, interval=0.01):
 	print(f"Games: {game}")
 	Crash.Websocket.Join(betamount, multiplier)
 ```
+For more detailed examples check the examples folder
