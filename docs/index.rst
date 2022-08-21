@@ -25,5 +25,5 @@ Crash
 -----
 - Websocket: 
 
- - Returns a websocket object
+  - Returns a websocket object
 
