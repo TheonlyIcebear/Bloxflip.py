@@ -10,5 +10,5 @@ Example of how you would call the the ``Currency.Balance`` attribute:
 
 >>> from bloxflip import Currency
 >>> auth = ""
->>> Currency.balance(auth)
+>>> Currency.Balance(auth)
 
