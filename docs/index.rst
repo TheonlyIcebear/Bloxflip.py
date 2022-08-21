@@ -12,7 +12,7 @@ Example of how you would call the the ``Currency.Balance`` attribute:
 >>> auth = ""
 >>> Currency.Balance(auth)
 
-Every function requires you to pass a valid bloxflip authorization, Besides ``bloxflip.Authorization.Generate``
+Every function requires you to pass a valid bloxflip authorization, Besides ``bloxflip.Authorization.Generate`` and ``bloxflip.Crash.Crashpoints``
 With the Generate function you must pass a roblox valid roblox cookie and it will return you a valid bloxflip authorization.
 
 
@@ -27,4 +27,5 @@ Crash
 
   - Connect: Returns a websocket object and automatically connects, read the `websocket-client documentation <https://websocket-client.readthedocs.io/en/latest/examples.html/>`_ for examples on how to use this
   - Join: Joins the crash game
+- Crashpoints: Will ``yield`` the past n'th crash games
 
