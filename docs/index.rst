@@ -20,3 +20,9 @@ Authorization
 --------------
 - Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
 - validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
+
+Crash
+-----
+- Websocket: 
+ - Returns a websocket object
+
