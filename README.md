@@ -8,11 +8,11 @@ There are 5 main bloxflip attributes
  - Currency
  - Mines
  - Towers
- 
+ Each with their own example showing how to use them in the examples folder
 
 # Examples
 
-Simple Crash joiner
+Simple Crash joiner:
 ```py
 from bloxflip import Currency, Crash
 import time
