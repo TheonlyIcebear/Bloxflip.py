@@ -14,3 +14,7 @@ Example of how you would call the the ``Currency.Balance`` attribute:
 
 Every function requires you to pass a valid bloxflip authorization, Besides ``bloxflip.Authorization.Generate``
 With the Generate function you must pass a roblox valid roblox cookie and it will return you a valid bloxflip authorization.
+
+
+Authorization
+--------------
