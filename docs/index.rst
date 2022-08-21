@@ -25,6 +25,5 @@ Crash
 -----
 - Websocket: 
 
-  - Connect: Returns a websocket object and automatically connects, read the websocket-client_
-.._websocket-client: https://websocket-client.readthedocs.io/en/latest/examples.html 
+  - Connect: Returns a websocket object and automatically connects, read the `Python <http://www.python.org/>`_
 
