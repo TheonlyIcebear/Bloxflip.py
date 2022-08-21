@@ -18,3 +18,5 @@ With the Generate function you must pass a roblox valid roblox cookie and it wil
 
 Authorization
 --------------
+- Generate
+Will generate a valid bloxflip authorization token in exchange for a roblox cookie
