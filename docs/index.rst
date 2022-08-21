@@ -24,6 +24,5 @@ Authorization
 Crash
 -----
 - Websocket: 
-
   - Returns a websocket object
 
