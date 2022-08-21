@@ -24,5 +24,8 @@ Authorization
 Crash
 -----
 - Websocket: 
-  - Returns a websocket object
+
+  - Connect: Returns a websocket object and automatically connects, read the websocket-client_ docs for more info .
+
+.._websocket-client: https://websocket-client.readthedocs.io/en/latest/examples.html 
 
