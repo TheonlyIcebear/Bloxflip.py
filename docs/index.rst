@@ -6,7 +6,7 @@ They're are 5 main attributes inside the bloxflip module
  - Mines
  - Towers
 
-Example of how you would call the the ``Currency.Balance`` attribute: <br>
+Example of how you would call the the ``Currency.Balance`` attribute: \n
 ``
 from bloxflip import Currency
 
