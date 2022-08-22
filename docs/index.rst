@@ -12,7 +12,9 @@ Example of how you would call the the ``Currency.Balance`` attribute:
 >>> auth = ""
 >>> Currency.Balance(auth)
 
-The auth arguement is optional for many of the functions, instead you can use the ``bloxflip.Login(auth)`` function once and the functions will automatically use that auth provided. You can always change the auth by running ``bloxflip.Login()`` with a different authorization
+The auth arguement is optional for many of the functions
+
+Instead you can use the ``bloxflip.Login(auth)`` function once and the functions will automatically use that auth provided. You can always change the auth by running ``bloxflip.Login()`` with a different authorization
 
 Authorization
 --------------
