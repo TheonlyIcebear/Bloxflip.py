@@ -12,9 +12,7 @@ Example of how you would call the the ``Currency.Balance`` attribute:
 >>> auth = ""
 >>> Currency.Balance(auth)
 
-Every function requires you to pass a valid bloxflip authorization, Besides ``bloxflip.Authorization.Generate`` and ``bloxflip.Crash.Crashpoints``
-With the Generate function you must pass a roblox valid roblox cookie and it will return you a valid bloxflip authorization.
-
+The auth arguement is optional for many of the functions, instead you can use the ``bloxflip.Login(auth)`` function once and the functions will automatically use that auth provided. You can always change the auth by running ``bloxflip.Login()`` with a different authorization
 
 Authorization
 --------------
