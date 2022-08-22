@@ -30,3 +30,15 @@ Crash
   - Join: Joins the crash game
 - Crashpoints: Will ``yield`` the past n'th crash games
 
+Towers
+-------
+- Create: Starts a towers game
+- Choose: Chooses a tile; must be from 0 to 2
+- Cashout: Exits the towers game with your earnings
+
+Mines
+-------
+- Create: Starts a mines game
+- Choose: Chooses a tile; must be from 0 to 24
+- Cashout: Exits the mines game with your earnings
+
