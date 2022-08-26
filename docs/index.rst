@@ -20,13 +20,10 @@ You can always change the auth by running ``bloxflip.Login()`` with a different 
 Authorization
 --------------
 - Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
-+------------+------------+----------------+
-|    Key     | Arguements | Response       |
-+============+============+================+
-| Optional   | N/A        | N/A            |
-+------------+------------+----------------+
-| Mandatory  | Cookie     | Bloxflip Auth. |
-+------------+------------+----------------+
+:Arguements:
+    - Roblox authorization cookie (Mandatory)
+
+:Response: Valid bloxflip auth
 
 If it fails it will respond:
 
