@@ -25,7 +25,7 @@ Authorization
 +============+============+===========+
 | Optional   | N/A        | N/A       |
 +------------+------------+-----------+
-| Mandatory  | Cookie     | Response. |
+| Mandatory  | Cookie     | Bloxflip Auth. |
 +------------+------------+-----------+
 | body row 3 | Cells may  | - Cells   |
 +------------+ span rows. | - contain |
