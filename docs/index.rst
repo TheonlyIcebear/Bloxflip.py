@@ -20,12 +20,17 @@ You can always change the auth by running ``bloxflip.Login()`` with a different 
 Authorization
 --------------
 - Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
-:Authors:
-    - Tony J. (Tibs) Ibbs,
-    - David Goodger
-
-:Version: 1.0 of 2001/08/08
-:Dedication: To my father.
++------------+------------+-----------+
+|    | Arguements  | Header 3  |
++============+============+===========+
+| Optional | column 2   | column 3  |
++------------+------------+-----------+
+| body row 2 | Cells may span columns.|
++------------+------------+-----------+
+| body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+| body row 4 |            | - blocks. |
++------------+------------+-----------+
 - validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
 
 Crash
