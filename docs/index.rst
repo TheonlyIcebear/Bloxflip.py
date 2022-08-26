@@ -25,7 +25,7 @@ Authorization
 
 :Response: Valid bloxflip auth
 
-If it fails it will respond:
+Errors:
 
 +------------+------------+------------------------------------+
 |    Key     | KeyError                                        |
@@ -37,6 +37,22 @@ If it fails it will respond:
 
 
 - validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
+
+:Arguements:
+    Bloxflip authorzation token (Mandatory)
+
+:Response: True, False
+
+Errors:
+
++------------+------------+----------------------------------------------+
+|    Key     | TypeError: missing 1 required positional argument: 'auth' |
++============+===========================================================+
+| Response   | Either cookie is invalid or cookie is ip locked.          |
++------------+------------+----------------------------------------------+
+| Meaning    | Invalid Roblox cookie passed                              |
++------------+------------+----------------------------------------------+
+
 
 Crash
 -----
