@@ -36,6 +36,8 @@ Errors:
 +------------+------------+------------------------------------+
 
 
+
+-------------
 - validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
 
 :Arguements:
