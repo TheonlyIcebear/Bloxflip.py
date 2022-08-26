@@ -21,11 +21,11 @@ Authorization
 --------------
 - Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
 +------------+------------+-----------+
-|            | Arguements  | Header 3 |
+|            | Arguements | Response |
 +============+============+===========+
-| Optional   | column 2   | column 3  |
+| Optional   | N/A        | N/A       |
 +------------+------------+-----------+
-| body row 2 | Cells may span columns.|
+| Mandatory  | Cookie     | Response. |
 +------------+------------+-----------+
 | body row 3 | Cells may  | - Cells   |
 +------------+ span rows. | - contain |
