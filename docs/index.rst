@@ -21,7 +21,7 @@ Authorization
 --------------
 - Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
 :Arguements:
-    - Roblox authorization cookie (Mandatory)
+    Roblox authorization cookie (Mandatory)
 
 :Response: Valid bloxflip auth
 
