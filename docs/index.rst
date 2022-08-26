@@ -33,11 +33,11 @@ Crash
 Towers
 -------
 - Create: Starts a towers game
-- Choose: Chooses a tile; must be from 0 to 2, returns False is tile exploded
+- Choose: Chooses a tile; must be from 0 to 2, returns False if tile exploded
 - Cashout: Exits the towers game with your earnings
 
 Mines
 -------
 - Create: Starts a mines game
-- Choose: Chooses a tile; must be from 0 to 24, returns False is tile exploded
+- Choose: Chooses a tile; must be from 0 to 24, returns False if tile exploded
 - Cashout: Exits the mines game with your earnings
