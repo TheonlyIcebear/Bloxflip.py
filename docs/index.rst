@@ -21,16 +21,24 @@ Authorization
 --------------
 - Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
 +------------+------------+----------------+
-|            | Arguements | Response       |
+|    Key     | Arguements | Response       |
 +============+============+================+
 | Optional   | N/A        | N/A            |
 +------------+------------+----------------+
 | Mandatory  | Cookie     | Bloxflip Auth. |
 +------------+------------+----------------+
-| body row 3 | Cells may  | - Cells        |
-+------------+ span rows. | - contain      |
-| body row 4 |            | - blocks.      |
-+------------+------------+----------------+
+
+If it fails it will respond:
+
++------------+------------+------------------------------------+
+|    Key     | KeyError                                        |
++============+=================================================+
+| Optional   | Either cookie is invalid or cookie is ip locked.|
++------------+------------+------------------------------------+
+| Mandatory  | Cookie     | Bloxflip Auth.                     |
++------------+------------+------------------------------------+
+
+
 - validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
 
 Crash
