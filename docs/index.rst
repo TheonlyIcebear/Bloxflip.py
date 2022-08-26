@@ -33,9 +33,9 @@ If it fails it will respond:
 +------------+------------+------------------------------------+
 |    Key     | KeyError                                        |
 +============+=================================================+
-| Optional   | Either cookie is invalid or cookie is ip locked.|
+| Response   | Either cookie is invalid or cookie is ip locked.|
 +------------+------------+------------------------------------+
-| Mandatory  | Cookie     | Bloxflip Auth.                     |
+| Meaning    | Invalid Roblox cookie passed                    |
 +------------+------------+------------------------------------+
 
 
