@@ -19,46 +19,8 @@ You can always change the auth by running ``bloxflip.Login()`` with a different 
 
 Authorization
 --------------
-
-Generate
--------
-Will generate a valid bloxflip authorization token in exchange for a roblox cookie
-
-:Arguements:
-    Roblox authorization cookie (Mandatory)
-
-:Response: Valid bloxflip auth
-
-Errors:
-
-+------------+------------+------------------------------------+
-|    Key     | KeyError                                        |
-+============+=================================================+
-| Response   | Either cookie is invalid or cookie is ip locked.|
-+------------+------------+------------------------------------+
-| Meaning    | Invalid Roblox cookie passed                    |
-+------------+------------+------------------------------------+
-
-
-Validate
--------------
-Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
-
-:Arguements:
-    Bloxflip authorzation token (Mandatory)
-
-:Response: True, False
-
-Errors:
-
-+------------+------------+----------------------------------------------+
-|    Key     | TypeError: missing 1 required positional argument: 'auth' |
-+============+===========================================================+
-| Response   | Either cookie is invalid or cookie is ip locked.          |
-+------------+------------+----------------------------------------------+
-| Meaning    | Invalid Roblox cookie passed                              |
-+------------+------------+----------------------------------------------+
-
+- Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
+- validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
 
 Crash
 -----
@@ -79,4 +41,3 @@ Mines
 - Create: Starts a mines game
 - Choose: Chooses a tile; must be from 0 to 24
 - Cashout: Exits the mines game with your earnings
-
