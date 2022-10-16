@@ -1,7 +1,17 @@
-import cloudscraper, requests, json, time, os
+import cloudscraper, requests, base64, json, time, os
 from websocket import create_connection
 
+from random import randbytes
+
 scraper = cloudscraper.create_scraper()
+auth = None
+
+def Login(a):
+	global auth
+	if Authorization.validate(a):
+		auth = a
+	else:
+		raise Exception("KeyError: Invalid authorization provided.")
 
 class Crash:
 	def __init__(self, auth):
@@ -11,33 +21,53 @@ class Crash:
 		def __init__ (self):
 			pass
 
-		def Connect(auth=None):
+		def Connect(auth=auth, headers=None):
 			global ws
-			ws = create_connection("wss://sio-bf.blox.land/socket.io/?EIO=3&transport=websocket", header={
-					"Accept-Encoding": "gzip, deflate, br",
-					"Accept-Language": "en-US,en;q=0.9",
-					"Cache-Control": "no-cache",
-					"Connection": "Upgrade",
-					"Host": "sio-bf.blox.land",
-					"Origin": "https://bloxflip.com",
-					"Pragma": "no-cache",
-					"Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",
-					"Sec-WebSocket-Key": "dTCC7XK7OBweEv1kVAUycQ==",
-					"Sec-WebSocket-Version": "13",
-					"Upgrade": "websocket",
-					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
-			})
+			if not headers:
+				headers = {
+						"GET": "/socket.io/?EIO=3&transport=websocket HTTP/1.1",
+						"Host": "sio-bf.blox.land",
+						"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0",
+						"Accept": "*/*",
+						"Accept-Language": "en-US,en;q=0.5",
+						"Accept-Encoding": "gzip, deflate, br",
+						"Sec-WebSocket-Version": "13",
+						"Origin": "https://www.piesocket.com",
+						"Sec-WebSocket-Extensions": "permessage-deflate",
+						"Sec-WebSocket-Key": str(base64.b64encode(randbytes(16)).decode('utf-8')),
+						"Connection": "keep-alive, Upgrade",
+						"Sec-Fetch-Dest": "websocket",
+						"Sec-Fetch-Mode": "websocket",
+						"Sec-Fetch-Site": "cross-site",
+						"Pragma": "no-cache",
+						"Cache-Control": "no-cache",
+						"Upgrade": "websocket"
+				}
+			ws = create_connection("wss://ws.bloxflip.com/socket.io/?EIO=3&transport=websocket",
+									suppress_origin=True,  
+									headers=headers
+								)
 
 			ws.send("40/crash,")
 			if not Authorization.validate(auth):
+				ws.close()
 				raise Exception("KeyError: Invalid authorization provided.")
 			ws.send(f'42/crash,["auth","{auth}"]')
 
 			return ws
 
 		def Join(betamount, multiplier):
-			json = str({"autoCashoutPoint":int(multiplier*100),"betAmount":betamount}).replace("'", '"').replace(" ", "")
-			ws.send(f'42/crash,["join-game",{str(json)}]')
+			try:
+				ws
+			except:
+				raise NameError("ws is not defined. You haven't connected to the websocket yet.")
+			try:
+				json = str({"autoCashoutPoint":int(multiplier*100),"betAmount":betamount}).replace("'", '"').replace(" ", "")
+				ws.send(f'42/crash,["join-game",{str(json)}]')
+			except:
+				return False
+
+			return True
 
 
 	def Crashpoints(amount=10, interval=0.01):
@@ -51,7 +81,7 @@ class Crash:
 			try:
 				games = scraper.get("https://rest-bf.blox.land/games/crash").json()
 			except:
-				games = scraper.get("https://rest-bf.blox.land/games/crash").json()
+				continue
 
 			if not history == games["history"]:
 				history = games["history"]
@@ -62,7 +92,7 @@ class Towers:
 	def __init__(self):
 		pass
 
-	def Create(betamount, difficulty, auth):
+	def Create(betamount, difficulty, auth=None):
 		if not difficulty in ["easy", "normal", "hard"]:
 			raise KeyError("Invalid difficulty provided.")
 		response = scraper.post("https://rest-bf.blox.land/games/towers/create", 
@@ -94,10 +124,10 @@ class Towers:
 			else:
 				raise Exception("Insuffecient funds.")
 
-			return False
+			return response
 		return True
 
-	def Choose(choice, auth):
+	def Choose(choice, auth=None):
 		response = scraper.post("https://rest-bf.blox.land/games/towers/action", 
 								headers={
 									"x-auth-token": auth
@@ -152,7 +182,7 @@ class Mines:
 	def __init__(self):
 		pass
 
-	def Create(betamount, mines, auth):
+	def Create(betamount, mines, auth=None):
 		response = scraper.post("https://rest-bf.blox.land/games/mines/create", 
 								headers={
 									"x-auth-token": auth
@@ -178,7 +208,9 @@ class Mines:
 			if response.json()["msg"] == "You already have an active mines game!":
 				raise Exception("You already have an active mines game. End it then try again.")
 
-	def Choose(choice, auth):
+		return response
+
+	def Choose(choice, auth=None):
 		response = scraper.post("https://rest-bf.blox.land/games/mines/action", 
 								headers={
 									"x-auth-token": auth
@@ -221,7 +253,7 @@ class Mines:
 
 			return False
 
-		return True
+		return response
 
 class Authorization:
 	def __init__(self):
@@ -235,13 +267,14 @@ class Authorization:
 		if not "jwt" in list(request):
 			raise KeyError("Either cookie is invalid or cookie is ip locked.")
 
+		return request.json()["jwt"]
+
 	def validate(auth):
 		request = scraper.get("https://rest-bf.blox.land/user", headers={
 						"x-auth-token": auth
 				}).json()
-		if request["success"] == True:
-			return True
-		return False
+
+		return request["success"]
 
 
 class Currency:
