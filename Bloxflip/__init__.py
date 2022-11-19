@@ -1,7 +1,7 @@
 import cloudscraper, requests, base64, json, time, os
 from websocket import create_connection
 
-from random import randbytes
+importrandom
 
 scraper = cloudscraper.create_scraper()
 auth = None
