@@ -1,11 +1,14 @@
-from bloxflip import Currency, Crash, Authorization
-import time
+from bloxflip import Currency, Mines, Authorization
 
 cookie = ""
-auth = Authorization.Generate(cookie)
-if not Authorization.validate(auth):
-	print("Inavlid authorization")
-	exit()
 
-balance = round(Currency.Balance(auth), 2)
-print(f"Balance: {balance}")
+auth = Authorization.generate(cookie)
+
+
+if Authorization.validate(auth):
+    balance = Currency.balance(auth)
+    affiliate = Currrency.affiliate
+
+
+    print(f"User balance: {balance}")
+    print(f"Affiliate balance: {affiliate}")
