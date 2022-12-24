@@ -19,25 +19,25 @@ You can always change the auth by running ``bloxflip.Login()`` with a different 
 
 Authorization
 --------------
-- Generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
+- generate: Will generate a valid bloxflip authorization token in exchange for a roblox cookie
 - validate: Will return ``True`` or ``False`` wether or not the provided bloxflip auth is valid or not
 
 Crash
 -----
-- Websocket: 
+- websocket: 
 
-  - Connect: Returns a websocket object and automatically connects, read the `websocket-client documentation <https://websocket-client.readthedocs.io/en/latest/>`_ for examples on how to use this
-  - Join: Joins the crash game
-- Crashpoints: Will ``yield`` the past n'th crash games
+  - connect: Returns a websocket object and automatically connects, read the `websocket-client documentation <https://websocket-client.readthedocs.io/en/latest/>`_ for examples on how to use this
+  - join: Joins the crash game
+- crashPoints: Will ``yield`` the past n'th crash games
 
 Towers
 -------
-- Create: Starts a towers game
-- Choose: Chooses a tile; must be from 0 to 2, returns False if tile exploded
-- Cashout: Exits the towers game with your earnings
+- create: Starts a towers game
+- choose: Chooses a tile; must be from 0 to 2, returns False if tile exploded
+- cashout: Exits the towers game with your earnings
 
 Mines
 -------
-- Create: Starts a mines game
-- Choose: Chooses a tile; must be from 0 to 24, returns False if tile exploded
-- Cashout: Exits the mines game with your earnings
+- create: Starts a mines game
+- choose: Chooses a tile; must be from 0 to 24, returns False if tile exploded
+- cashout: Exits the mines game with your earnings
