@@ -2,7 +2,7 @@ import cloudscraper, websocket, requests, base64, json, time
 from typing import Union, Generator, Any
 from websocket import create_connection
 from random import randbytes
-from utils.errors import errors
+from .utils.errors import errors
 
 scraper = cloudscraper.create_scraper()
 
@@ -82,7 +82,7 @@ class Crash:
         return self._Websocket(self.auth)
 
     @staticmethod
-    def crashpoints(amount: int = 35, interval: float = 0.01, on_game_start: =None) -> Generator[list[Union[Round, list[Round]]], Any, Any]:
+    def crashpoints(amount: int = 35, interval: float = 0.01, on_game_start: type(print) = None) -> Generator[list[Union[Round, list[Round]]], Any, Any]:
         """Indefinitely yields the last game's results as well as the previous results everytime a new game starts
         
         Parameters:
@@ -120,7 +120,13 @@ class Crash:
 
     @property
     def history(self, amount: int = 35) -> list:
-        """Returns the last N games, 35 by default"""
+        """Returns the last N games, 35 by default
+        
+        Parameter:
+        amount (int): Amount of games returned
+        
+        Returns:
+        list: Recent games"""
 
         try:
             games = scraper.get("https://rest-bf.blox.land/games/crash").json()

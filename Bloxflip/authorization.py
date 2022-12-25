@@ -1,5 +1,5 @@
 import cloudscraper
-from utils.errors import errors
+from .utils.errors import errors
 
 scraper = cloudscraper.create_scraper()
 
@@ -7,7 +7,7 @@ class User:
     """A Object for a user's account info"""
 
     def __init__(self, info: dict) -> None:
-        self.games_played = games["gamesPlayed"]
+        self.games_played = info["gamesPlayed"]
         self.games_won = info["gamesWon"]
         self.account_verified = info["hasVerifiedAccount"]
         self.total_deposited = info["totalDeposited"]
@@ -56,7 +56,7 @@ class Authorization:
         try:
             request = scraper.get("https://api.bloxflip.com/user", headers={
                 "x-auth-token": auth
-            }).json
+            }).json()
         except:
             raise errors.NetworkError("Network Error.")
 

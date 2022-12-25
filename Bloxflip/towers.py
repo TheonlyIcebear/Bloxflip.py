@@ -1,5 +1,5 @@
 import cloudscraper, json, time
-from utils.errors import errors
+from .utils.errors import errors
 
 scraper = cloudscraper.create_scraper()
 
