@@ -1,13 +1,11 @@
-import cloudscraper, websocket, requests, base64, json, time, ssl, os
-from typing import Union, Generator, Any
-from websocket import create_connection
-from random import randbytes
+import cloudscraper, json, time
 from utils.errors import errors
 
 scraper = cloudscraper.create_scraper()
 
+
 class Tower:
-    """A wrapper for a Towers game"""
+    """A class for a Towers game"""
 
     def __init__(self, info: dict) -> None:
         if not info["hasGame"]:
@@ -30,6 +28,7 @@ class Tower:
         else:
             self.active = False
 
+
 class Towers:
     def __init__(self, auth):
         self.auth = auth
@@ -39,6 +38,7 @@ class Towers:
 
         if not difficulty in ["easy", "normal", "hard"]:
             raise errors.InvalidParamater("Invalid difficulty provided.")
+
         response = scraper.post("https://rest-bf.blox.land/games/towers/create", headers={
                         "x-auth-token": self.auth
                     },
@@ -122,12 +122,12 @@ class Towers:
 
     @property
     def current(self) -> Tower:
-        if not Authorization.validate(self.auth):
-            raise errors.InvalidAuthorization("Invalid authorization provided.")
-
         request = scraper.get("https://api.bloxflip.com/games/mines", headers={
                         "x-auth-token": self.auth
                     }
                 ).json()
 
-        return Tower(request)
+        try:
+            return Tower(request)
+        except (KeyError, Exception):
+            raise errors.InvalidAuthorization("Invalid authorization provided.")
