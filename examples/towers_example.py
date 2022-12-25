@@ -4,50 +4,50 @@ import bloxflip, random, time
 auth = ""
 
 if not Authorization.validate(auth):
-	print("Inavlid authorization")
-	exit()
+    print("Inavlid authorization")
+    exit()
 
-betamount = 5
-towersamount = 3
+bet_amount = 5
+towers_amount = 3
 
 towers = bloxflip.Towers(auth)
 
 while True:
-	towers.create(betamount, towersamount)
-	time.sleep(0.5)
+    towers.create(bet_amount, towers_amount)
+    time.sleep(0.5)
 
-	choice = random.choice(list(range(0, 2)))
-	balance = round(Currency.Balance(auth), 2)
+    choice = random.choice(list(range(0, 2)))
+    balance = round(Currency.Balance(auth), 2)
 
-	current = towers.current
-	result = towers.choose(choice)
+    current = towers.current
+    result = towers.choose(choice)
 
-	time.sleep(1)
-	if current.active: # Check if there is a active game
-		print(current.payout) # print how much you'd get if you withdrawed
+    time.sleep(1)
+    if current.active:  # Check if there is an active game
+        print(current.payout)  # print how much you'd get if you withdraw
 
     print(current)
-		
-	"""Attributes:
-	 - payout
-	 - bet_amount
-	 - difficulty
-	 - uuid
-	 - nonce
-	 - user_id
-	 - timestamp
-	 - exploded
-	 - client_seed
-	 - competed_levels
-	 - active
-	"""
+        
+    """Attributes: current
+     - payout
+     - bet_amount
+     - difficulty
+     - uuid
+     - nonce
+     - user_id
+     - timestamp
+     - exploded
+     - client_seed
+     - competed_levels
+     - active
+    """
 
-	
+    
 
-	print(f"Balance: {balance}")
-	print(f"Choosing tile {choice}")
-	if result:
-		print("Cashing out")
-		towers.cashout()
-	else:
-		print("Mine exploded")
+    print(f"Balance: {balance}")
+    print(f"Choosing tile {choice}")
+    if result:
+        print("Cashing out")
+        towers.cashout()
+    else:
+        print("Mine exploded")
