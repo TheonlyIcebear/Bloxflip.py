@@ -28,7 +28,7 @@ Crash
 
   - connect: Returns a websocket object and automatically connects, read the `websocket-client documentation <https://websocket-client.readthedocs.io/en/latest/>`_ for examples on how to use this
   - join: Joins the crash game
-- crashPoints: Will ``yield`` the past n'th crash games
+- crashpoints: Will ``yield`` the past n'th crash games
 
 Towers
 -------
