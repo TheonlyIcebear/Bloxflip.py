@@ -4,7 +4,7 @@ import time
 
 auth = ""
 if not Authorization.validate(auth):
-	print("Inavlid authorization")
+	print("Invalid authorization")
 	exit()
 
 old = None

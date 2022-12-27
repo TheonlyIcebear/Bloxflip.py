@@ -4,13 +4,13 @@ import bloxflip, random, time
 auth = ""
 
 if not Authorization.validate(auth):
-    print("Inavlid authorization")
+    print("Invalid authorization")
     exit()
 
 bet_amount = 5
 mines_amount = 3
 
-mines = ines(auth)
+mines = Mines(auth)
 
 while True:
     mines.create(bet_amount, mines_amount)

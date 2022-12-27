@@ -4,7 +4,7 @@ import bloxflip, random, time
 auth = ""
 
 if not Authorization.validate(auth):
-    print("Inavlid authorization")
+    print("Invalid authorization")
     exit()
 
 bet_amount = 5

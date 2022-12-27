@@ -5,7 +5,7 @@ failed = False
 auth = ""
 
 if not Authorization.validate(auth):
-    print("Inavlid authorization")
+    print("Invalid authorization")
     exit()
 
 crash = bloxflip.Crash(auth)
@@ -19,9 +19,8 @@ except:
 
 # example 1
 
-for info in crash.crashpoints(amount=35, interval=0.01):
-    current = info[0]
-    history = info[1]
+for history in crash.crashpoints(amount=35, interval=0.01):
+    current = history[0]
 
     """Attributes: 
      - crash_point
@@ -34,21 +33,22 @@ for info in crash.crashpoints(amount=35, interval=0.01):
     time.sleep(2)  # Make sure bet isn't placed before game starts
     balance = round(Currency.balance(auth), 2)
     print(f"Balance: {balance}")
-    print(f"Games: {current.crash_point}")
+    print(f"Games: {current.crashpoint}")
     if not failed:
         websocket.join(betamount=1, multiplier=1.5)  # Join the game
 
 # example 2
 
-def func(info):
-    current = info[0]
-    history = info[1]
+
+def func(history):
+    current = history[0]
 
     time.sleep(2)  # Make sure bet isn't placed before game starts
     balance = round(Currency.balance(auth), 2)
     print(f"Balance: {balance}")
-    print(f"Games: {current.crash_point}")
+    print(f"Games: {current.crashpoint}")
     if not failed:
         websocket.join(betamount=1, multiplier=1.5)  # Join the game
+
 
 crash.crashpoints(on_game_start=func)

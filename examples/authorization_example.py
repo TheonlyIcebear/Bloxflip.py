@@ -1,7 +1,7 @@
 from bloxflip import Currency, Mines, Authorization
 
 cookie = ""
-auth = Authorization.generate(cookie)
+auth = ""
 
 
 if Authorization.validate(auth):
