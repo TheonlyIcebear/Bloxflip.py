@@ -5,18 +5,18 @@ from .utils.errors import errors
 
 scraper = cloudscraper.create_scraper()
 
-class Round:
-    """A wrapper for a Crash game"""
 
-    def __init__(self, game: dict) -> None:
-        self.crashpoint = game["crashPoint"]
-        self.public_seed = game["publicSeed"]
-        self.private_seed = game["privateSeed"]
-        self.private_hash = game["privateHash"]
-        self.game_id = game["_id"]
+class Game:
+    def __init__(self, info):
+        self.value = sum([player["betAmount"] for player in info["players"]])
+        self.time = info["timeLeft"]
+        self.status = info["status"]
+        self.winner = info["winner"]
+        self.winningColor = info["winningColor"]
+        self.id = info["_id"]
 
 
-class Crash:
+class Jackpot:
     def __init__(self, auth: str) -> None:
         self.auth = auth
 
@@ -81,7 +81,7 @@ class Crash:
         return self._Websocket(self.auth)
 
     @staticmethod
-    def current(snipe_at: int = 0.05, interval: float = 0.01, on_game_start: type(print) = None) -> float:
+    def sniper(snipe_at: int = 0.05, interval: float = 0.01, on_game_start: type(print) = None) -> float:
         """Indefinitely yields the pot's value N seconds before wheel spins
 
         Parameters:
@@ -113,7 +113,10 @@ class Crash:
 
                 current = scraper.get("https://api.bloxflip.com/games/jackpot").json()["current"]
 
-                yield sum([player["betAmount"] for player in current["players"]])
+                pot_value = sum([player["betAmount"] for player in current["players"]])
+                on_game_start(pot_value)
+
+                yield Game(current)
 
             time.sleep(interval)
 
@@ -130,4 +133,4 @@ class Crash:
         except json.decoder.JSONDecodeError:
             raise errors.NetworkError("A Network Error has occurred")
 
-        return sum([player["betAmount"] for player in current["players"]])
+        return Game(current)
