@@ -1,4 +1,4 @@
-import cloudscraper
+import cloudscraper, json
 from .utils.errors import errors
 
 scraper = cloudscraper.create_scraper()
@@ -16,6 +16,7 @@ class User:
         self.username = info["user"]["robloxUsername"]
         self.roblox_id = info["user"]["robloxId"]
         self.rank = info["user"]["rank"]
+        self.balance = info["user"]["wallet"]
 
 
 class Authorization:
@@ -26,7 +27,7 @@ class Authorization:
     def generate(cookie: str, affiliate: str = "BFSB") -> str:
 
         """Generate a Bloxflip Auth Token from a Roblox Cookie"""
-        request = scraper.post("https://rest-bf.blox.land/user/login", json={
+        request = scraper.post("https://api.bloxflip.com/user/login", json={
             "affiliateCode": affiliate,
             "cookie": cookie
         }).json()
@@ -40,7 +41,7 @@ class Authorization:
     def validate(auth: str) -> bool:
         """Validates that the Authorization Token works"""
 
-        request = scraper.get("https://rest-bf.blox.land/user", headers={
+        request = scraper.get("https://api.bloxflip.com/user", headers={
             "x-auth-token": auth
         }).json()
 
@@ -51,14 +52,18 @@ class Authorization:
 
     @staticmethod
     def get_info(auth: str) -> User:
-        """Get's user's info then returns in a class"""
+        """Gets user's info then returns in a class"""
 
         try:
             request = scraper.get("https://api.bloxflip.com/user", headers={
                 "x-auth-token": auth
             }).json()
-        except:
+        except json.decoder.JSONDecodeError:
             raise errors.NetworkError("Network Error.")
 
-        return User(request)
+        try:
+            return User(request)
+        except KeyError:
+            raise errors.InvalidAuthorization("Invalid Authorization provided")
+
 

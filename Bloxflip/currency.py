@@ -12,7 +12,7 @@ class Currency:
     def balance(auth: str) -> int:
         """Get user's balance from their auth token"""
 
-        request = scraper.get("https://rest-bf.blox.land/user", headers={
+        request = scraper.get("https://api.bloxflip.com/user", headers={
             "x-auth-token": auth
         }).json()
         if not "user" in list(request):
@@ -24,7 +24,7 @@ class Currency:
     def affiliate(auth: str) -> int:
         """Get the amount of currency available on their affiliate"""
 
-        request = scraper.get("https://rest-bf.blox.land/user/affiliates", headers={
+        request = scraper.get("https://api.bloxflip.com/user/affiliates", headers={
             "x-auth-token": auth
         }).json()
         if not "affiliateMoneyAvailable" in list(request):
@@ -36,7 +36,7 @@ class Currency:
     def claimAfiliate(auth: str, amount: int) -> dict:
         """Claim the currency insied the user's affiliate balance"""
 
-        response = scraper.post("https://rest-bf.blox.land/user/affiliates/claim", 
+        response = scraper.post("https://api.bloxflip.com/user/affiliates/claim",
                     headers={
                         "x-auth-token": auth
                     }, json={
@@ -60,7 +60,7 @@ class Currency:
     def withdraw(auth: str, amount: int) -> dict:
         """Withdraw Bloxflip currency into Roblox"""
 
-        response = scraper.post("https://rest-bf.blox.land/user/withdrawTarget", headers={
+        response = scraper.post("https://api.bloxflip.com/user/withdrawTarget", headers={
                     "x-auth-token": auth
                 }, json={
                     "amount": str(int(amount))

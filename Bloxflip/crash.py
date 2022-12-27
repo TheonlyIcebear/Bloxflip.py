@@ -11,7 +11,7 @@ class Round:
     """A wrapper for a Crash game"""
 
     def __init__(self, game: dict) -> None:
-        self.crash_point = game["crashPoint"]
+        self.crashpoint = game["crashPoint"]
         self.public_seed = game["publicSeed"]
         self.private_seed = game["privateSeed"]
         self.private_hash = game["privateHash"]
@@ -53,8 +53,10 @@ class Crash:
             websocket.WebSocket: A websocket connection connected and already logged in
             """
 
-            self._connection = create_connection("wss://ws.bloxflip.com/socket.io/?EIO=3&transport=websocket", header=headers,
-                suppress_origin=True
+            self._connection = create_connection(
+                "wss://ws.bloxflip.com/socket.io/?EIO=3&transport=websocket",
+                suppress_origin=True,
+                header=headers
             )
 
             ws = self._connection
@@ -105,17 +107,23 @@ class Crash:
 
         while True:
             try:
-                games = scraper.get("https://rest-bf.blox.land/games/crash").json()
+                games = scraper.get("https://api.bloxflip.com/games/crash").json()
             except ValueError:
                 continue
-            
-            data = [Round(games["history"][0]), [Round(_crashpoint) for _crashpoint in history]]
 
             if history != games["history"]:
                 history = games["history"]
+
+                data = [Round(_crashpoint) for _crashpoint in history]
+
+                if not sent:
+                    sent = True
+                    continue
+
                 if on_game_start:
                     on_game_start(data)
                 yield data
+
             time.sleep(interval)
 
     @property
@@ -129,9 +137,9 @@ class Crash:
         list: Recent games"""
 
         try:
-            games = scraper.get("https://rest-bf.blox.land/games/crash").json()
-        except:
-            raise errors.NetworkError("A Network Error has occured")
+            games = scraper.get("https://api.bloxflip.com/games/crash").json()
+        except json.decoder.JSONDecodeError:
+            raise errors.NetworkError("A Network Error has occurred.")
 
         history = games["history"]
 

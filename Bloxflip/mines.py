@@ -37,7 +37,7 @@ class Mines:
     def create(self, betamount: float, mines: int) -> None:
         """Creates a mines game"""
 
-        response = scraper.post("https://rest-bf.blox.land/games/mines/create", headers={
+        response = scraper.post("https://api.bloxflip.com/games/mines/create", headers={
                         "x-auth-token": self.auth
                     },
                     json={
@@ -67,7 +67,7 @@ class Mines:
     def choose(self, choice: int) -> bool:
         """Chooses a tile to bet on"""
 
-        response = scraper.post("https://rest-bf.blox.land/games/mines/action", headers={
+        response = scraper.post("https://api.bloxflip.com/games/mines/action", headers={
                             "x-auth-token": self.auth
                         },
                         json={
@@ -88,7 +88,7 @@ class Mines:
     def cashout(self) -> bool:
         """Cashouts the winnings from the current Mines game"""
 
-        response = scraper.post("https://rest-bf.blox.land/games/mines/action", headers={
+        response = scraper.post("https://api.bloxflip.com/games/mines/action", headers={
                             "x-auth-token": self.auth
                         },
                         json={
