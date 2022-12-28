@@ -48,5 +48,7 @@ Discord: https://discord.gg/wbh8eFGKAm
 Crypto:
 
 XMR: 49Gwzrmm5irYKmURJgnEVajVnHo1mRMymMR8UykbGCSELCzh3q3BUBPJ4RSEho8K4c4WHvUR7LUtFcFyhXCJ11eLNt3QWoc
+
 BTC: bc1qwxytxk6cqyhd9rj0707mmyn44ez0m85nmce8uw
+
 ETH: 0xC52491F8Aa367F69DD4224009fE279b34279E6C7
