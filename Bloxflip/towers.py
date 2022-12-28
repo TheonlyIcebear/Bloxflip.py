@@ -37,7 +37,7 @@ class Towers:
         """Creates a towers game"""
 
         if not difficulty in ["easy", "normal", "hard"]:
-            raise errors.InvalidParamater("Invalid difficulty provided.")
+            raise errors.InvalidParameter("Invalid difficulty provided.")
 
         response = scraper.post("https://rest-bf.blox.land/games/towers/create", headers={
                         "x-auth-token": self.auth
@@ -49,7 +49,7 @@ class Towers:
                 )
 
         if betamount < 5:
-            raise errors.InvalidParamater("Bet amount must be greater than 5")
+            raise errors.InvalidParameter("Bet amount must be greater than 5")
 
         if response.status_code == 429:
             raise errors.Ratelimited("Ratelimited: Too many requests")
@@ -64,7 +64,7 @@ class Towers:
                 raise errors.GameAlreadyStarted("You already have an active towers game. End it then try again.")
 
             elif response.json()["msg"] == "You can not afford to start this game!":
-                raise errors.InsuffecientFunds("You cannot afford to start this game.")
+                raise errors.InsufficientFunds("You cannot afford to start this game.")
 
             raise errors.GeneralError("Failed to create game")
 
@@ -116,7 +116,7 @@ class Towers:
             elif response.json()["msg"] == "You cannot cash out yet! You must uncover at least one tile!":
                 raise errors.GeneralError("You cannot cash out yet! You must uncover at least one tile!")
 
-            raise errors.InsuffecientFunds("Insuffecient funds")
+            raise errors.InsufficientFunds("Insuffecient funds")
 
         return response.json()
 

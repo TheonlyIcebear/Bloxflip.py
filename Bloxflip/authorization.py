@@ -4,7 +4,7 @@ from .utils.errors import errors
 scraper = cloudscraper.create_scraper()
 
 class User:
-    """A Object for a user's account info"""
+    """An Object for a user's account info"""
 
     def __init__(self, info: dict) -> None:
         self.games_played = info["gamesPlayed"]

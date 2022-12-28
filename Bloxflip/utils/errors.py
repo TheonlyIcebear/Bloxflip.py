@@ -2,13 +2,13 @@ class errors:
     def __init__() -> None:
         pass
 
-    class InsuffecientFunds(Exception):
+    class InsufficientFunds(Exception):
         """Raised if user lacks the funds to do a certain action"""
 
         pass
 
     class InvalidAuthorization(Exception):
-        """Raised if a invalid Authorization Token is passed"""
+        """Raised if an invalid Authorization Token is passed"""
 
         pass
 
@@ -27,8 +27,8 @@ class errors:
 
         pass
 
-    class InvalidParamater(Exception):
-        """Raised if a invalid paramater is passed"""
+    class InvalidParameter(Exception):
+        """Raised if an invalid parameter is passed"""
 
         pass
 

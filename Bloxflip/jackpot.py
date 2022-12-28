@@ -31,8 +31,8 @@ class Jackpot:
             "Accept-Language": "en-US,en;q=0.5",
             "Accept-Encoding": "gzip, deflate, br",
             "Sec-WebSocket-Version": "13",
-            "Host": "ws.bloxflip.com",
-            "Origin": "https://bloxflip.com",
+            "Origin": "https://www.piesocket.com",
+            "Sec-WebSocket-Extensions": "permessage-deflate",
             "Sec-WebSocket-Key": str(base64.b64encode(randbytes(16)).decode('utf-8')),
             "Connection": "keep-alive, Upgrade",
             "Sec-Fetch-Dest": "websocket",
@@ -40,7 +40,7 @@ class Jackpot:
             "Sec-Fetch-Site": "cross-site",
             "Pragma": "no-cache",
             "Cache-Control": "no-cache",
-            "Upgrade": "websocket",
+            "Upgrade": "websocket"
         }) -> websocket.WebSocket:
             """Connects to websocket and returns websocket object
 
@@ -94,22 +94,19 @@ class Jackpot:
         """
 
         if snipe_at > 29:
-            raise errors.InvalidParamater("'snipe_at' cannot be above greater than 29")
+            raise errors.InvalidParameter("'snipe_at' cannot be above greater than 29")
 
         elif not callable(on_game_start) and on_game_start:
-            raise errors.InvalidParamater("'on_game_start' must be a callable object.")
+            raise errors.InvalidParameter("'on_game_start' must be a callable object.")
 
         while True:
             try:
                 current = scraper.get("https://api.bloxflip.com/games/jackpot").json()["current"]
-                elapsed = current.elapsed.total_seconds()
             except Exception as e:
                 print(e)
 
             if len(current["players"]) == 2:
-                start = time.time()
-                timeleft = 30 - (time.time() - start) - elapsed
-                time.sleep(timeleft - snipe_at)
+                time.sleep(30 - snipe_at)
 
                 current = scraper.get("https://api.bloxflip.com/games/jackpot").json()["current"]
 

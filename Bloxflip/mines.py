@@ -47,7 +47,7 @@ class Mines:
                 )
 
         if betamount < 5:
-            raise errors.InvalidParamater("Bet amount must be greater than 5")
+            raise errors.InvalidParameter("Bet amount must be greater than 5")
 
         if response.status_code == 429:
             raise errors.Ratelimited("Ratelimited: Too many requests")
@@ -60,7 +60,7 @@ class Mines:
             if response.json()["msg"] == "You already have an active mines game!":
                 raise errors.GameAlreadyStarted("You already have an active mines game. End it then try again.")
             if response.json()["msg"] == "You can not afford to start this game!":
-                raise errors.InsuffecientFunds("You cannot afford to start this game.")
+                raise errors.InsufficientFunds("You cannot afford to start this game.")
 
             raise errors.GeneralError("Failed to create game")
 

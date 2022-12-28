@@ -1,5 +1,4 @@
 import cloudscraper, websocket, requests, base64, json, time
-from typing import Union, Generator, Any
 from websocket import create_connection
 from random import randbytes
 from .utils.errors import errors
@@ -28,22 +27,22 @@ class Crash:
             self._connection = None
 
         def connect(self, headers: dict = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0",
-                "Accept": "*/*",
-                "Accept-Language": "en-US,en;q=0.5",
-                "Accept-Encoding": "gzip, deflate, br",
-                "Sec-WebSocket-Version": "13",
-                "Host": "ws.bloxflip.com",
-                "Origin": "https://bloxflip.com",
-                "Sec-WebSocket-Key": str(base64.b64encode(randbytes(16)).decode('utf-8')),
-                "Connection": "keep-alive, Upgrade",
-                "Sec-Fetch-Dest": "websocket",
-                "Sec-Fetch-Mode": "websocket",
-                "Sec-Fetch-Site": "cross-site",
-                "Pragma": "no-cache",
-                "Cache-Control": "no-cache",
-                "Upgrade": "websocket",
-            }) -> websocket.WebSocket:
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0",
+            "Accept": "*/*",
+            "Accept-Language": "en-US,en;q=0.5",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Sec-WebSocket-Version": "13",
+            "Origin": "https://www.piesocket.com",
+            "Sec-WebSocket-Extensions": "permessage-deflate",
+            "Sec-WebSocket-Key": str(base64.b64encode(randbytes(16)).decode('utf-8')),
+            "Connection": "keep-alive, Upgrade",
+            "Sec-Fetch-Dest": "websocket",
+            "Sec-Fetch-Mode": "websocket",
+            "Sec-Fetch-Site": "cross-site",
+            "Pragma": "no-cache",
+            "Cache-Control": "no-cache",
+            "Upgrade": "websocket"
+        }) -> websocket.WebSocket:
             """Connects to websocket and returns websocket object
             
             Parameters:
@@ -84,7 +83,7 @@ class Crash:
         return self._Websocket(self.auth)
 
     @staticmethod
-    def crashpoints(amount: int = 35, interval: float = 0.01, on_game_start: type(print) = None) -> Generator[list[Union[Round, list[Round]]], Any, Any]:
+    def crashpoints(amount: int = 35, interval: float = 0.01, on_game_start: type(print) = None) -> list:
         """Indefinitely yields the last game's results as well as the previous results everytime a new game starts
         
         Parameters:
@@ -100,10 +99,10 @@ class Crash:
         sent = False
 
         if amount > 35:
-            raise errors.InvalidParamater("Amount cannot be above 35.")
+            raise errors.InvalidParameter("Amount cannot be above 35.")
 
         elif not callable(on_game_start) and on_game_start:
-            raise errors.InvalidParamater("'on_game_start' must be a callable object.")
+            raise errors.InvalidParameter("'on_game_start' must be a callable object.")
 
         while True:
             try:

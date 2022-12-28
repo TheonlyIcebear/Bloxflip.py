@@ -51,7 +51,7 @@ class Currency:
             raise errors.Ratelimited("Ratelimited, too many requests.")
 
         elif Currency.Affiliate(auth) < 100:
-            raise errors.InsuffecientFunds("Not enough funds to withdraw")
+            raise errors.InsufficientFunds("Not enough funds to withdraw")
 
         else:
             raise errors.InvalidAuthorization("Invalid authorization provided.")
