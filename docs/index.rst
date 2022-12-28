@@ -68,8 +68,17 @@ Errors
 
 Errors is a exception raising and catching catching
 
+.. list-table:: Title
+   :widths: 25 25 50
+   :header-rows: 1
 
-|     Error Type     |                              Raised when                                  | Name |
-| ------------------ | ------------------------------------------------------------------------- | -----|
-| InsuffecientFunds  | User attempts to do a action which requires more credits than they have   |      |
-| Content Cell       | Content Cell                                                              |      |
+   * - Heading Error Type
+     - Heading Raised when
+     - Heading Name
+   * - Row 1, column 1
+     -
+     - Row 1, column 3
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
+
