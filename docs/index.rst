@@ -66,18 +66,9 @@ Jackpot
 Errors
 -------
 
-Errors is a except raising and catching module
+Errors is a exception raising and catching catching
 
-.. list-table:: Errors
-   :widths: 25 25 50
+.. csv-table:: Table Title
+   :file: CSV file path and name
+   :widths: 30, 70
    :header-rows: 1
-
-   * - errors.InsuffecientFunds
-     - Raised
-     - Heading row 1, column 3 123
-   * - Row 1, column 1 2315
-     -
-     - Row 1, column 3
-   * - Row 2, column 1 2345 
-     - Row 2, column 2 4523
-     - Row 2, column 3
