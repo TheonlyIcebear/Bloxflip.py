@@ -2,12 +2,14 @@
 An API Wrapper for bloxflip
 
 # Usage
-There are 5 main bloxflip attributes
+There are 7 main bloxflip attributes
  - Authorization
  - Crash
  - Currency
  - Mines
  - Towers
+ - Jackpot
+ - Errors
  Each with their own example showing how to use them in the examples folder
 
 # Examples
