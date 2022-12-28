@@ -72,9 +72,9 @@ Errors is a exception raising and catching catching
    :widths: 25 25 50
    :header-rows: 1
 
-   * - Heading Error Type
-     - Heading Raised when
-     - Heading Name
+   * - Error Type
+     - Raised when
+     - Name
    * - Row 1, column 1
      -
      - Row 1, column 3
