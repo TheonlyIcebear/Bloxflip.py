@@ -1,10 +1,12 @@
-They're are 5 main attributes inside the bloxflip module
+They're are 7 main attributes inside the bloxflip module
 
 - Authorization
 - Crash
 - Currency
 - Mines
+- Jackpot
 - Towers
+- Errors
 
 Example of how you would call the the ``Currency.Balance`` attribute:
 
@@ -12,7 +14,7 @@ Example of how you would call the the ``Currency.Balance`` attribute:
 >>> auth = ""
 >>> Currency.Balance(auth)
 
-To begin, for the classess, crash, towers, mines and jackpot, you need to create a instance of the class with the authorization token
+For the classess, crash, towers, mines and jackpot, you need to create a instance of the class with the authorization token
 
 >>> from bloxflip import Crash
 >>> crash = Crash('Auth-Token-Here')
