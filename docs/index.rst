@@ -75,9 +75,9 @@ Errors is a except raising and catching module
    * - errors.InsuffecientFunds
      - Raised
      - Heading row 1, column 3 123
-   * - Row 1, column 1
+   * - Row 1, column 1 2315
      -
      - Row 1, column 3
-   * - Row 2, column 1
-     - Row 2, column 2
+   * - Row 2, column 1 2345 
+     - Row 2, column 2 4523
      - Row 2, column 3
