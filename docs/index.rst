@@ -62,3 +62,22 @@ Jackpot
 >>>     balance = round(Currency.balance(auth), 2)
 >>>     print(f"Balance: {balance}")
 >>>     print(f"Pot value: {pot.value}")
+
+Errors
+-------
+
+Errors is a except raising and catching module
+
+.. list-table:: Errors
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - errors.InsuffecientFunds
+     - Raised
+     - Heading row 1, column 3 123
+   * - Row 1, column 1
+     -
+     - Row 1, column 3
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
