@@ -1,5 +1,6 @@
 # Bloxflip.py
 An API Wrapper for bloxflip
+https://bloxflippy.readthedocs.io/en/latest/
 
 # Usage
 There are 7 main bloxflip attributes
@@ -38,3 +39,14 @@ for games in crash.crashpoints(amount=30, interval=0.01):
 	websocket.join(betamount=betamount, multiplier=multiplier)
 ```
 For more detailed examples check the examples folder
+
+# Extra
+
+read-the-docs: https://bloxflippy.readthedocs.io/en/latest/
+Discord: https://discord.gg/wbh8eFGKAm
+
+Crypto:
+
+XMR: 49Gwzrmm5irYKmURJgnEVajVnHo1mRMymMR8UykbGCSELCzh3q3BUBPJ4RSEho8K4c4WHvUR7LUtFcFyhXCJ11eLNt3QWoc
+BTC: bc1qwxytxk6cqyhd9rj0707mmyn44ez0m85nmce8uw
+ETH: 0xC52491F8Aa367F69DD4224009fE279b34279E6C7
