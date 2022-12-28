@@ -74,11 +74,28 @@ Errors is a exception raising and catching catching
 
    * - Error Type
      - Raised when
-     - Name
-   * - Row 1, column 1
-     -
-     - Row 1, column 3
-   * - Row 2, column 1
-     - Row 2, column 2
-     - Row 2, column 3
-
+     - Exception
+   * - InsufficientFunds
+     - User attempts to do an action that requires more credits than they have
+     - bloxflip.errors.InsufficientFunds
+   * - InvalidAuthorization
+     - User passes an invalid authorization token for action that requires a valid token 
+     - bloxflip.errors.InvalidAuthorization
+   * - GameAlreadyStarted
+     - User attempts to create a new game when a game is already active
+     - bloxflip.errors.GameAlreadyStarted
+   * - GameNotStarted
+     - User attempts an action that requires a game to be started when there isn't
+     - bloxflip.errors.GameNotStarted
+   * - Ratelimited
+     - User is sending too many messages and bloxflip begings blocking their requests
+     - bloxflip.errors.Ratelimited
+   * - InvalidParamater
+     - User passes a paramter than cannot be evaluated
+     - bloxflip.errors.InvalidParameter
+   * - GeneralError
+     - General Failure
+     - bloxflip.errors.GeneralError
+   * - NetworkError
+     - General network, ussually fails when user is being blocked by cloudflare
+     - bloxflip.errors.NetworkError
