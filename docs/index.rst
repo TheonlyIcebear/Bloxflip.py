@@ -71,5 +71,5 @@ Errors is a exception raising and catching catching
 
 | Error Type         | Raised when                                                               | Name |
 | ------------------ | ------------------------------------------------------------------------- | -----|
-| InsuffecientFunds  |   User attempts to do a action which requires more credits than they have |      |
+| InsuffecientFunds  | User attempts to do a action which requires more credits than they have   |      |
 | Content Cell       | Content Cell                                                              |      |
