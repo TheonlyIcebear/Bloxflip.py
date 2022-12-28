@@ -66,9 +66,9 @@ Jackpot
 Errors
 -------
 
-Errors is a exception raising and catching catching
 
-.. list-table:: Title
+
+.. list-table:: Errors is a exception raising and catching class
    :widths: 25 25 50
    :header-rows: 1
 
