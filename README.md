@@ -43,6 +43,7 @@ For more detailed examples check the examples folder
 # Extra
 
 read-the-docs: https://bloxflippy.readthedocs.io/en/latest/
+
 Discord: https://discord.gg/wbh8eFGKAm
 
 Crypto:
