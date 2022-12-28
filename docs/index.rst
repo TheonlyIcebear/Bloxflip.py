@@ -68,7 +68,8 @@ Errors
 
 Errors is a exception raising and catching catching
 
-.. csv-table:: Table Title
-   :file: CSV file path and name
-   :widths: 30, 70
-   :header-rows: 1
+
+| Error Type         | Raised when                                                               | Name |
+| ------------------ | ------------------------------------------------------------------------- | -----|
+| InsuffecientFunds  |   User attempts to do a action which requires more credits than they have |      |
+| Content Cell       | Content Cell                                                              |      |
