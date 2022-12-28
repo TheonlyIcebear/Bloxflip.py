@@ -50,6 +50,7 @@ Mines
 Jackpot
 ------
 - Websocket: Creates websocket object connected to bloxflip websocket
+
   - connect: logs into Websocket, same as crash websocket except it's listening in on the Jackpot channel
   - join: Will join the current Jackpot game
 - sniper: Yields the current jackpot's game's current value N seconds before it ends
