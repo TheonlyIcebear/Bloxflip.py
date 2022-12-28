@@ -58,7 +58,7 @@ Jackpot
 >>> from bloxflip import Currency, Jackpot, Authorization
 >>> jackpot = Jackpot('Auth-Token-Here')
 >>>
->>> for pot in jackpot.sniper(snipe_at=0.5, interval=0.01):
+>>> for pot in jackpot.sniper(snipe_at=0.5, interval=0.01): # Snipes game 0.5 seconds before it starts
 >>>     balance = round(Currency.balance(auth), 2)
 >>>     print(f"Balance: {balance}")
 >>>     print(f"Pot value: {pot.value}")
