@@ -18,7 +18,7 @@ There are 7 main bloxflip attributes
 Simple Crash joiner:
 ```py
 from bloxflip import Currency, Crash
-import time
+import bloxflip, time
 
 auth = ""
 betamount = 1
