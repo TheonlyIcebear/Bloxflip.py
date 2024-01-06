@@ -33,7 +33,7 @@ for games in crash.crashpoints(amount=30, interval=0.01):
 	history = games[1]
 
 	time.sleep(2) # Make sure bet isn't placed before game starts
-        balance = round(Currency.balance(auth), 2)
+	balance = round(Currency.balance(auth), 2)
 	print(f"Balance: {balance}")
 	print(f"Games: {current.crashpoint}")
 	websocket.join(betamount=betamount, multiplier=multiplier)
